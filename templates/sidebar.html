@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="sidebar.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css' ) }}">
+<style>
+  .sidebar {
+    height: 100%;
+    width: 25%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+
+  .sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    color:cobalt blue;
+    display: block;
+    transition: 0.3s;
+  }
+
+  .sidebar a:hover {
+    color: #f1f1f1;
+  }
+
+  .sidebar h3 {
+    color: white;
+    text-align: center;
+    margin-top: 0;
+  }
+
+  .content {
+    margin-left: 25%;
+    padding: 20px;
+    transition: margin-left 0.5s;
+  }
+
+  .hidden {
+    display: none;
+  }
+  iframe{
+    position: relative;
+    padding-top: 0px;
+    height: 700px;
+    width: 100%;
+    overflow: hidden;
+  }
+  .outside{
+    position: relative;
+    display: block;
+  }
+</style>
+<body>
+
+<!-- Sidebar -->
+
+<!-- Pa
+  ge Content -->
+<div style="margin-left:25%" class="outside" >
+  <iframe src="app.html" name="iframe" frameborder="0" scrolling="auto" allowfullscreen></iframe>
+</div>
+<div class="sidebar" id="mySidebar">
+  <h3>Profile</h3>
+  <img src="images/logo.jpg" class="avatar" alt="logo">
+  <a href="images/medication.html" class="w3-bar-item w3-button" target="iframe" onclick="showContent('medication')">Medication</a>
+  <a href="app.html" class="w3-bar-item w3-button" target="iframe" onclick="showContent('bookAppointment')">Book Appointment</a>
+  <a href="images/comments.html" class="w3-bar-item w3-button" target="iframe" onclick="showContent('comments')">Comments</a>
+  <a href="diabetic.html" class="w3-bar-item w3-button" target="iframe" onclick="showContent('diary')">Diary</a>
+  <a href="pay.html" class="w3-bar-item w3-button" target="iframe" onclick="showContent('billing')">Billing</a>
+</div>
+
+   <div id="medication" class="hidden">
+      <h1> Patient Medication</h1>
+      <p>This is the content for medication.</p>
+  </div>
+  <div id="comments" class="hidden">
+      <h1>Comments</h1>
+      <p>This is the content for comments.</p>
+  </div>
+  <div id="diary" class="hidden">
+      <h1>Diary</h1>
+      <p>This is the content for diary.</p>
+  </div>
+  <div id="billing" class="hidden">
+      <h1>Billing</h1>
+      <p>This is the content for billing.</p>
+  </div>
+</div>
+
+<script>
+  function showContent(contentId) {
+    var contents = document.querySelectorAll('.content > div');
+    for (var i = 0; i < contents.length; i++) {
+      contents[i].classList.add('hidden');
+    }
+    document.getElementById(contentId).classList.remove('hidden');
+  }
+  </script> 
+</body>
+</html>

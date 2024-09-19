@@ -1,0 +1,54 @@
+       body {
+           font-family: Arial, sans-serif;
+           background-color: #f2f2f2;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           height: 100vh;
+           margin: 0;
+           
+       }
+
+       .login-container {
+           background-color: #fff;
+           padding: 20px;
+           border-radius: 10px;
+           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+           text-align: center;
+           overflow: hidden;
+       }
+
+       .login-container i {
+           color: #3498db;
+       }
+
+       .login-input {
+           width: 100%;
+           padding: 10px;
+           margin: 10px 0;
+           box-sizing: border-box;
+       }
+
+       .login-btn {
+           background-color: #3498db;
+           color: #fff;
+           padding: 10px;
+           border: none;
+           border-radius: 5px;
+           cursor: pointer;
+           font-size: 16px;
+           width: 100%;
+       }
+
+       .forgot-password {
+           margin-top: 10px;
+       }
+ .flash-container {
+    max-width: 300px;
+ }
+
+ .flash-message {
+     color: #e82618;
+     margin-bottom: 10px;
+    word-wrap: break-word;
+}

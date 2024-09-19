@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add your head content here -->
+</head>
+<body>
+    {% if diary_entries %}
+        <h1>Diary Entries</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Day of Week</th>
+                    <th>Before Eating</th>
+                    <th>After Eating</th>
+                    <th>Bedtime</th>
+                    <th>Comment</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in diary_entries %}
+                    <tr>
+                        <td>{{ entry.id }}</td>
+                        <td>{{ entry.day_of_week }}</td>
+                        <td>{{ entry.before_eating }}</td>
+                        <td>{{ entry.after_eating }}</td>
+                        <td>{{ entry.bedtime }}</td>
+                        <td>{{ entry.comment }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No diary entries found.</p>
+    {% endif %}
+</body>
+</html>

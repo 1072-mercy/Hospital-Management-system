@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Patient</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='patients.css') }}">
+</head>
+
+<body>
+    <h1>Add Patient</h1>
+
+    <!-- Patient Form -->
+    <form method="POST" action="{{ url_for('add_patient') }}">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <button type="submit">Add Patient</button>
+    </form>
+
+    <!-- Add a cancel or back button if needed -->
+</body>
+
+</html>

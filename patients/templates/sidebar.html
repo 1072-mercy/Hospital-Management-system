@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="sidebar.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css' ) }}">
+ 
+
+
+
+<body>
+
+
+<div class="left-side">
+    <div class="left-top">
+      <h1yoooh></h1>
+
+    </div>
+    <div class="left-bottom">
+        <button id="medication" onclick="loadContent('/medication')"><h1>Medication</h1></button>
+        <button id="comments" onclick="loadContent('/comments')"><h1> Comments</h1></button>
+        <button id="diary" onclick="loadContent('/diary')"><h1>Diary</h1></button>
+        <button id="billing" onclick="loadContent('/billing')"><h1>Billing</h1></button>
+    </div>
+</div>
+
+<div class="right-side">
+    <iframe src="" name="iframe" frameborder="0" scrolling="auto" allowfullscreen></iframe>
+</div>
+
+<script>
+  function loadContent(route) {
+            $.ajax({
+                type: 'GET',
+                url: route,
+                success: function (data) {
+                    document.querySelector('iframe').srcdoc = data;
+                },
+                error: function () {
+                    alert('Failed to load content.');
+                }
+            });
+        }
+  </script> 
+</body>
+</html>

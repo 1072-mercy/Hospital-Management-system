@@ -1,0 +1,130 @@
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    color: #FFF;
+}
+
+.sidebar {
+    height: 100%;
+    width: 25%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-sizing: border-box;
+    overflow-y: hidden;
+    border-right: 5px solid ryed;
+    /* Set border for the sidebar */
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    color: rgb(65, 13, 113);
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar h2 {
+    color: rgb(132, 14, 241);
+    text-align: center;
+    margin-top: 0;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+    background-color: rgb(132, 14, 241);
+}
+
+.sidebar a.active {
+    color: #f1f1f1;
+    background-color: rgb(132, 14, 241);
+}
+
+.sidebar img.avatar {
+    width: 100px;
+    border-radius: 50%;
+    height: 100px;
+}
+
+iframe {
+    position: relative;
+    padding-top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.content {
+    margin-left: 25%;
+    /* Adjusted the margin to match the width of the sidebar */
+    padding: 20px;
+    transition: margin-left 0.5s;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+.left-top {
+    background-color: none;
+    border-bottom: 3px solid #e2c5c5;
+    padding: 10px;
+    height: 180px;
+    text-decoration: #e2c5c5;
+    width: 280px;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    box-sizing: border-box;
+    color: #f1f1f1;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: solid greenn;
+}
+
+button {
+    background-color: rgb(5, 5, 5);
+    width: 100%;
+    padding: 5px;
+    border: none;
+}
+
+.logo {
+    border: solid 7px #fcfafa;
+    height: 100px;
+    width: 100px;
+    top: 0;
+    margin-left: 30%;
+    border-radius: 50%;
+    
+    background-color: #fff;
+}
+
+.logo img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 200px;
+}
+
+
+.right-side {
+    border: solid 5px grNHeen;
+    /* Set border for the right side */
+    width: 75%;
+    height: 20%;
+    background-color: aUqua;
+    margin-left: 25%;
+    /* Adjusted the margin to match the width of the sidebar */
+}
+.left-top h1{
+    color: #FFF;
+}

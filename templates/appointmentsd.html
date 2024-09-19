@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patients Form</title>
+    <style>
+       
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='appointmentd.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+        <ul class="appointments-list">
+            {% for appointment in appointments %}
+                <li class="appointment-item">
+                    <button  onclick="openAppointmentDetails('{{ appointment.email }}')">
+                        {{ appointment.name }} - {{ appointment.email }} - {{ appointment.time }}
+                    </button>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <script>
+    function openAppointmentDetails(email) {
+        window.location.href = `/records/${email}`;
+    }
+</script>
+</body>
+
+</html>

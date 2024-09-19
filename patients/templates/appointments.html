@@ -1,0 +1,154 @@
+<!-- appointments.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Show 1</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='appointment.css') }}">
+</head>
+
+<body>
+    <div class="formbold-main-wrapper">
+        <div class="formbold-form-wrapper">
+            <form action="{{ url_for('patient.appointments') }}" method="POST">
+                <div class="formbold-mb-5">
+                    <label for="name" class="formbold-form-label"> Full Name </label>
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder="Full Name"
+                        class="formbold-form-input"
+                    />
+                </div>
+                <div class="formbold-mb-5">
+                    <label for="hospital" class="formbold-form-label"> Hospital </label>
+                    <input
+                        type="text"
+                        name="hospital"
+                        id="hospital"
+                        placeholder="Enter hospital name"
+                        class="formbold-form-input"
+                    />
+                </div>
+                <div class="formbold-mb-5">
+                    <label for="specialization" class="formbold-form-label"> Specialization </label>
+                    <select name="specialization" id="specialization" class="formbold-form-input">
+                        <option value="consultant" selected>Consultant</option>
+                        <option value="general_practitioner">General Practitioner</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+                <div class="formbold-mb-5">
+                    <label for="phone" class="formbold-form-label"> Phone Number </label>
+                    <input
+                        type="text"
+                        name="phone"
+                        id="phone"
+                        placeholder="Enter your phone number"
+                        class="formbold-form-input"
+                    />
+                </div>
+                <div class="formbold-mb-5">
+                    <label for="email" class="formbold-form-label"> Email Address </label>
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        class="formbold-form-input"
+                    />
+                </div>
+
+                <div class="formbold-mb-5 formbold-pt-3">
+                    <label class="formbold-form-label formbold-form-label-2">
+                        Address Details
+                    </label>
+                    <div class="flex flex-wrap formbold--mx-3">
+                        <div class="w-full sm:w-half formbold-px-3">
+                            <div class="formbold-mb-5">
+                                <input
+                                    type="text"
+                                    name="area"
+                                    id="area"
+                                    placeholder="Enter area"
+                                    class="formbold-form-input"
+                                />
+                            </div>
+                        </div>
+                        <div class="w-full sm:w-half formbold-px-3">
+                            <div class="formbold-mb-5">
+                                <input
+                                    type="text"
+                                    name="city"
+                                    id="city"
+                                    placeholder="Enter city"
+                                    class="formbold-form-input"
+                                />
+                            </div>
+                        </div>
+                        <div class="w-full sm:w-half formbold-px-3">
+                    <div class="formbold-mb-5">
+                        <label class="formbold-form-label">
+                            <div id="time" class="formbold-form-text">{{ current_time }}</div>
+                        </label>
+                        <input
+                            type="hidden"  
+                            name="time"
+                            id="time-input"
+                            value="{{ current_time }}"
+                        />
+                    </div>
+                </div>
+
+                <div class="w-full sm:w-half formbold-px-3">
+                    <div class="formbold-mb-5">
+                        <label class="formbold-form-label">
+                            <div id="date" class="formbold-form-text">{{ current_date }}</div>
+                        </label>
+                        <input
+                            type="hidden" 
+                            name="date"
+                            id="date-input"
+                            value="{{ current_date }}"
+                        />
+                    </div>
+                </div>
+                        <div class="w-full sm:w-half formbold-px-3">
+                            <div class="formbold-mb-5">
+                                <input
+                                    type="text"
+                                    name="postcode"
+                                    id="post-code"
+                                    placeholder="Post Code"
+                                    class="formbold-form-input"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="formbold-btn">Book Appointment</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get current date and time
+            const currentDate = new Date().toISOString().split('T')[0];
+            const currentTime = new Date().toLocaleTimeString('en-US', {
+                hour12: false
+            });
+
+            // Set the current date and time as text
+            document.getElementById('date').textContent = currentDate;
+            document.getElementById('time').textContent = currentTime;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetic Patients</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='patients.css') }}">
+</head>
+
+<body>
+    <h1>Diabetic Patients</h1>
+
+    {% if diary_entries %}
+        <ul>
+            {% for entry in diary_entries %}
+                <li>{{ entry.day_of_week }} - {{ entry.before_eating }} - {{ entry.after_eating }} - {{ entry.bedtime }} - {{ entry.comment }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No diary entries available for this patient.</p>
+    {% endif %}
+
+    <!-- Appointment Booking Form -->
+    <h2>Book Appointment</h2>
+    <h2>Book Appointment</h2>
+   <form method="post" action="{{ url_for('doctor_appointment') }}">
+
+        <label for="appointment_date">Select Appointment Date:</label>
+        <input type="date" id="appointment_date" name="appointment_date" required>
+
+        <!-- Comment Section -->
+        <label for="appointment_comment">Comment:</label>
+         <input type="hidden" name="patient_email" value="{{ session.get('user_email') }}">
+         <input type="text" id="comment" name="comment" required>
+
+         
+
+        <button type="submit">Show Diary</button>
+</body>
+
+</html>

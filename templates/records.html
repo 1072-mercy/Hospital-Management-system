@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add your head content here -->
+     <link rel="stylesheet" href="{{ url_for('static', filename='records.css') }}">
+</head>
+<body>
+    
+    {% if patient_details %}
+        <h1>{{ patient_details.Name }}</h1>
+        <!-- Rest of your template -->
+    {% else %}
+        <p>No records found for the given email.</p>
+    {% endif %}
+
+    {% if patient_details %}
+
+        {% if history_entries %}
+        <table id="recordsTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>ID Number</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Timestamp</th>
+                    <th>Symptoms</th>
+                    <th>Sickness</th>
+                    <th>Medication</th>
+                    <th>Doctor Name</th>
+                    <th>Doctor Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in history_entries %}
+                    <tr>
+                        <td>{{ patient_details.IDNumber }}</td>
+                        <td>{{ patient_details.Age }}</td>
+                        <td>{{ patient_details.Gender }}</td>
+                        <td>{{ entry.timestamp }}</td>
+                        <td>{{ entry.Symptoms }}</td>
+                        <td>{{ entry.Sickness }}</td>
+                        <td>{{ entry.Medication }}</td>
+                        <td>{{ entry.doctor_email }}</td>
+                        <td>{{ entry.name }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+        <!-- Add more details as needed -->
+        <!-- Show Records Button -->
+        <button onclick="showRecords()">Show Records</button>
+
+        <!-- Update Records Button -->
+        <button onclick="window.location.href='{{ url_for('update_records', email=patient_details.EMail) }}'">Update Records</button>
+    {% else %}
+        <p>No records found for the given email.</p>
+    {% endif %}
+
+    <script>
+        function showRecords() {
+            // Toggle the visibility of the table
+            var recordsTable = document.getElementById('recordsTable');
+            recordsTable.style.display = recordsTable.style.display === 'none' ? 'table' : 'none';
+        }
+    </script>
+</body>
+</html>

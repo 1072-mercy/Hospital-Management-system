@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="plogin.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='plogin.css' ) }}">
+</head>
+
+<body>
+
+
+    <div class="login-page">
+        <div class="form">
+            <form>
+    <lottie-player
+        src="https://assets4.lottiefiles.com/datafiles/XRVoUu3IX4sGWtiC3MPpFnJvZNq7lVWDCa8LSqgS/profile.json"
+        background="transparent" speed="1" style="justify-content: center;" loop autoplay><i class="fas fa-stethoscope fa-3x"></i></lottie-player>
+        <form action="{{ url_for('patient.login') }}" method="post">
+    <label for="email">Name:</label>
+    <input type="text" id="email" name="email" required>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Login</button>
+</form>
+
+<i class="fa fa-eye" onclick="show()"></i>
+<br>
+
+<p class="message"></p>
+
+<form class="login-form">
+    <button type="button" onclick="window.location.href='{{ url_for('patient.register') }}'">SIGN UP</button>
+</form>
+
+    <script>
+        function show() {
+            var password = document.getElementById("password");
+            var icon = document.querySelector(".fa")
+
+            // ========== Checking type of password ===========
+            if (password.type === "password") {
+                password.type = "text";
+            } else {
+                password.type = "password";
+            }
+        };
+    </script>
+</body>
+
+</html>

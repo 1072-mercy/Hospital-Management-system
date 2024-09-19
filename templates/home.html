@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="card.css">
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+</head>
+
+<body>
+    {% for entry in try_data %}
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    
+                </div><img src="{{ url_for('display_image', entry_id=entry.id) }}" alt="" class="card-img">
+            </div>
+            <div class="card-content">
+                <h2>{{ entry.lno }}</h2>
+                <h2>{{ entry.idno }}</h2>
+                <h2>{{ entry.name }}</h2>
+                <h2>{{ entry.dob }}</h2>
+                <h2>{{ entry.email }}</h2>
+                <h2>{{ entry.phoneno }}</h2>
+                <h2>{{ entry.specialization }}</h2>
+                <h2>{{ entry.hospital }}</h2>
+                <a href="{{ url_for('login') }}">Edit</a>
+            </div>
+        </div>
+    {% endfor %}
+</body>
+
+</html>
+e

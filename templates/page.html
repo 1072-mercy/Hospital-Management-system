@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>
+        Form validation using HTML
+        and JavaScript
+    </title>
+    <style>
+        div {
+            box-sizing: border-box;
+            width: 100%;
+            border: 100px solid black;
+            float: left;
+            align-content: center;
+            align-items: center;
+        }
+ 
+        form {
+            margin: 0 auto;
+            width: 600px;
+        }
+    </style>
+      <link rel="stylesheet" href="{{ url_for('static', filename='pregiste.css') }}">
+</head>
+ 
+<body>
+    <h1>REGISTRATION FORM</h1>
+    <form name="RegForm" onsubmit="return GEEKFORGEEKS()">
+        <p>
+            Name:
+            <input type="text" name="Name" placeholder="GeeksforGeeks" />
+        </p>
+   
+        <p>
+            E-mail Address:
+            <input type="text" name="EMail" placeholder="demo@example.com" />
+        </p>
+        <p>
+            Password:
+            <input type="password" name="Password" />
+        </p>
+        <p>
+            ID Number:
+            <input type="text" name="IDNumber" placeholder="Enter ID Number" />
+        </p>
+        <p>
+            Age:
+            <input type="age" name="age" />
+        </p>
+        <p>
+            D.O.B:
+            <input type="date" name="date" />
+        </p>
+        <p>
+            Gender:
+            <input type="radio" name="gender" value="male">Male
+            <input type="radio" name="gender" value="female">Female
+        </p>
+        <p>
+            Photo:
+            <input type="file" name="photo" accept="image/*">
+        </p>
+      
+        <p>
+          
+            <input type="submit" value="Submit" name="Submit" />
+        </p>
+    </form>
+    <script src="script.js"></script>
+</body>
+ 
+</html>

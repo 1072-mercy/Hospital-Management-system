@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='plogin.css' ) }}">
+</head>
+
+<body>
+    <div class="login-page">
+      <div class="fo">
+            <lottie-player
+            src="https://assets4.lottiefiles.com/datafiles/XRVoUu3IX4sGWtiC3MPpFnJvZNq7lVWDCa8LSqgS/profile.json"
+            background="transparent" speed="1" style="justify-content: center;" loop autoplay><i class="fas fa-stethoscope fa-3x"></i></lottie-player>
+            <h2>Login</h2>
+            <form action="{{ url_for('patient.login') }}" method="post">
+                <label for="email">Name:</label>
+                <input type="text" id="email" name="email" required>
+                <label for="password">password:</label>
+                <input type="password" id="password" name="password" required>
+
+            
+                    <button type="submit">Login</button>
+                    <button type="button" onclick="window.location.href='{{ url_for('patient.register') }}'">SIGN UP</button>
+                
+            </form>
+      </div>
+    </div>
+</body>
+
+</html>

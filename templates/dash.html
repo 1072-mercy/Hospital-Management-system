@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='card3.css' ) }}">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="card3.css">
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <form method="post" action="{{ url_for('home') }}">
+        <div id="container">
+            <div id="left-panel">
+                <div id="left-top">
+                    <div id="logo" onclick="goToAnotherPage()">
+                       {% for entry in try_data %}
+                            <div>
+                                <p>ID: {{ entry.id }}</p>
+                                <p>Name: {{ entry.name }}</p>
+                                <p>Email: {{ entry.email }}</p>
+                                <!-- Add more fields as needed -->
+                                <img src="{{ url_for('display_image', entry_id=entry.id) }}" alt="User Image">
+                                <hr>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div id="left-bottom">
+                    <!-- Buttons for appointments and patients -->
+                    <button id="appointment-btn" onclick="showAppointments()">Appointments</button>
+                    <button id="patient-btn" onclick="showPatients()">Patients</button>
+                </div>
+            </div>
+            <div id="right-panel">
+                <div id="right-top">
+                    <h2>Hospital Name</h2>
+                </div>
+                <div id="right-bottom">
+                    <!-- This is where appointment or patient information will be displayed -->
+                </div>
+            </div>
+        </div>
+    </form>
+
+ 
+</body>
+
+</html>

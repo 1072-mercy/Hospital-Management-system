@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='card3.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='card3.css') }}">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="card3.css">
+
+
+    <style>
+        /* Add your custom styles here */
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <form method="post" action="#">
+        <div id="container">
+            <div id="left-panel">
+                <div id="left-top">
+                    <div id="logo" onclick="goToAnotherPage()">
+                        <div class="card swiper-slide">
+                            <div class="image-content">
+                                <span class="overlay"></span>
+                                <div class="card-image">
+                                    <div class="card-image">
+                                        <div class="card-image">
+                                            {% for entry in try_data %}
+                                            <img src="{{ url_for('display_image', entry_id=entry.id) }}" alt="User Image">
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-content" id="dynamicContent">
+                                {% for entry in try_data %}
+                                <li type="none">
+                                    <h1>{{ entry.name }}</h1>
+                                    <h2>{{ entry.specialization }}</h2>
+                                </li>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="left-bottom">
+                     <a href="{{ url_for('appointments') }}" class="w3-bar-item w3-button" id="medication" onclick="loadContent('appointments')"  target="iframe" 
+                        >
+                            <h2>appointments</h2>
+                       </a>
+                       
+                       <a href="{{ url_for('patients') }}" class="w3-bar-item w3-button" id="medication" onclick="loadContent('patients')"  target="iframe" 
+                        >
+                            <h2>patients</h2>
+                       </a>
+                       <a href="{{ url_for('approvals') }}" class="w3-bar-item w3-button" id="medication" onclick="loadContent('approvals')"  target="iframe" 
+                        >
+                            <h2>aproval</h2>
+                       </a>
+                    <!-- Buttons for appointments and patients -->
+                    
+
+
+                                    </div>
+            </div>
+            <div id="right-panel">
+                <div id="right-top">
+                    {% for entry in try_data %}
+                    <h1>{{entry.hospital }}</h1>
+                    {% endfor %}
+                </div>
+                <div id="right-bottom">
+                    <iframe src="" name="iframe" frameborder="0" scrolling="auto" allowfullscreen style="width: 100%; height: 100%;"></iframe>
+                </div>
+
+            </div>
+        </div>
+    </form>
+
+    <script>
+        function loadContent(route) {
+            $.ajax({
+                type: 'GET',
+                url: route,
+                success: function (data) {
+                    document.querySelector('iframe').srcdoc = data;
+                },
+                error: function () {
+                    alert('Failed to load content.');
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diabetic Comments</title>
+  <link rel="stylesheet" href="comments.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='comments.css' ) }}">
+</head>
+<body>
+  <div class="comments-container">
+    <h2>Diabetic Comments</h2>
+    
+    <!-- Include the hidden input for patient's email -->
+    <form id="comment-form">
+        <input type="hidden" id="patientEmail" value="{{ patient.email }}">
+        
+        <!-- Other form elements -->
+        <div id="comments-list"></div>
+        <textarea id="comment-input" placeholder="Write your comment here"></textarea>
+        <button type="button" id="submit-comment">Submit</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+<style>
+   
+      
+</style>
+<script>
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const commentInput = document.getElementById('comment-input');
+        const submitButton = document.getElementById('submit-comment');
+        const commentsList = document.getElementById('comments-list');
+        const patientEmailInput = document.getElementById('patientEmail');
+
+        submitButton.addEventListener('click', function() {
+            const commentText = commentInput.value.trim();
+            const patientEmail = patientEmailInput.value;
+
+            if (commentText !== '') {
+                const commentElement = document.createElement('div');
+                commentElement.classList.add('comment');
+                commentElement.textContent = commentText;
+                commentsList.appendChild(commentElement);
+                commentInput.value = '';
+            } else {
+                alert('Please enter a comment.');
+            }
+            
+            // Include logic to send the comment to the server with patientEmail
+            // ... rest of your JavaScript code
+        });
+    });
+</script>
+
+      
+</script>

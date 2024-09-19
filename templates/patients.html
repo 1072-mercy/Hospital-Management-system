@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetic Patients</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='patients.css') }}">
+</head>
+
+<body>
+    <h1>Diabetic Patients</h1>
+
+    <button onclick="window.location.href='{{ url_for('add_patient') }}'">Add Patient</button>
+    <button onclick="window.location.href='{{ url_for('show_diabetic') }}'">Show Diary</button>
+
+    {% for patient in diabetic_patients %}
+    <button onclick="updatePatientEmail('{{ patient.email }}')">
+        {{ patient.id }} - {{ patient.name }} - {{ patient.email }}
+    </button>
+    {% endfor %}
+
+
+</body>
+
+</html>

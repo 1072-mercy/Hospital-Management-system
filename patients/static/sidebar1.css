@@ -1,0 +1,54 @@
+ .sidebar {
+     height: 100%;
+     width: 25%;
+     position: fixed;
+     z-index: 1;
+     top: 0;
+     left: 0;
+     background-color: #111;
+     overflow-x: hidden;
+     transition: 0.5s;
+     padding-top: 60px;
+ }
+
+ .sidebar a {
+     padding: 10px 15px;
+     text-decoration: none;
+     font-size: 20px;
+     color: cobalt blue;
+     display: block;
+     transition: 0.3s;
+ }
+
+ .sidebar a:hover {
+     color: #f1f1f1;
+ }
+
+ .sidebar h3 {
+     color: white;
+     text-align: center;
+     margin-top: 0;
+ }
+
+ .content {
+     margin-left: 25%;
+     padding: 20px;
+     transition: margin-left 0.5s;
+ }
+
+ .hidden {
+     display: none;
+ }
+
+ iframe {
+     position: relative;
+     padding-top: 0px;
+     height: 700px;
+     width: 100%;
+     overflow: hidden;
+ }
+
+ .outside {
+     position: relative;
+     display: block;
+ }

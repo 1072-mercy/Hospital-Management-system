@@ -1,0 +1,99 @@
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    height: 100%;
+    width: 180px;
+    /* Adjusted the width to fit the sidebar */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    box-sizing: border-box;
+}
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 18px;
+    /* Adjusted the font size */
+    color: rgb(65, 13, 113);
+    /* Matched the color of the text */
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar h2 {
+    color: rgb(132, 14, 241);
+    text-align: center;
+    margin-top: 0;
+}
+
+.sidebar a:hover {
+    color: #f1f1f1;
+    background-color: rgb(132, 14, 241);
+}
+
+.sidebar a.active {
+    color: #f1f1f1;
+    background-color: rgb(132, 14, 241);
+}
+
+.sidebar img.avatar {
+    width: 100px;
+    border-radius: 50%;
+    height: 100px;
+}
+
+iframe {
+    position: relative;
+    padding-top: 0;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.content {
+    margin-left: 180px;
+    padding: 20px;
+    transition: margin-left 0.5s;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+.left-top {
+    background-color: rgb(17, 16, 16);
+    border-bottom: 3px solid #e2c5c5;
+    padding: 10px;
+    height: 180px;
+    width: 180px;
+    box-sizing: border-box;
+    color: #f1f1f1;
+    text-align: center;
+}
+
+button {
+    background-color: rgb(5, 5, 5);
+    width: 100%;
+    padding: 5px;
+    border: none;
+}
+
+.logo {
+    border: solid 7px rgb(247, 244, 244);
+    height: 100px;
+    border-radius: 50%;
+
+}
+
+.logo img {
+    height: 100%;
+    width: 100%;
+}

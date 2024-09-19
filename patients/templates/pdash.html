@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>W3.CSS</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="sidebar.css">
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css' ) }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='comment.css' ) }}">
+<link rel="stylesheet" href="sidebar.css">
+<link rel="stylesheet" href="'comment.css">
+<a href="{{ url_for('patient.home') }}">Home</a>
+
+
+
+<body>
+<form method="post" action="{{ url_for('patient.home') }}" enctype="multipart/form-data">
+   
+    <div class="sidebar" id="mySidebar">
+
+        <div class="left-side">
+                <div class="left-top">
+                    <div class="logo">
+                      
+
+                         
+                        
+                    </div>
+                  
+                      <h1>name</h1>
+                   
+                </div>
+                <div class="left-bottom">
+                    <a href="{{ url_for('patient.medication') }}" class="w3-bar-item w3-button" id="medication" onclick="loadContent('medication')"  target="iframe" >
+                            <h2>Medication</h2>
+                       </a>
+                    <a href="{{ url_for('patient.comments') }}" class="w3-bar-item w3-button"  target="iframe"  id="comments" onclick="loadContent('comments')" >
+                       
+                            <h2> Comments</h2>
+                       
+                    </a>
+                    <a href="{{ url_for('patient.diary') }}" class="w3-bar-item w3-button"  id="diary" onclick="loadContent('diary')" target="iframe" >
+                       
+                            <h2>Diary</h2>
+                       
+                    </a>
+                    <a href="{{ url_for('patient.appointments') }}" class="w3-bar-item w3-button" target="iframe" id="billing" onclick="loadContent('appointments')" >
+                       
+                            <h2>Appointment</h2>
+                        
+                    </a>
+                    <a href="{{ url_for('patient.billing') }}" class="w3-bar-item w3-button" target="iframe" id="billing" onclick="loadContent('billing')">
+                      
+                            <h2>Billing</h2>
+                       
+                    </a>
+
+                </div>
+        </div>
+    </div>
+
+    <div class="right-side">
+        <iframe src="" name="iframe" frameborder="0" scrolling="auto" allowfullscreen></iframe>
+    </div>
+  </form>
+   
+
+    <script>
+        function loadContent(route) {
+            $.ajax({
+                type: 'GET',
+                url: route,
+                success: function (data) {
+                    document.querySelector('iframe').srcdoc = data;
+                },
+                error: function () {
+                    alert('Failed to load content.');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

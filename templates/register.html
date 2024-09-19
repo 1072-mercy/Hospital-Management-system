@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='register2.css' ) }}">
+</head>
+
+<body>
+    <h1>Registration Form</h1>
+    <form method="post" action="{{ url_for('register') }}" enctype="multipart/form-data">
+        <label for="lno">licence:</label>
+        <input type="number" id="lno" name="lno" required>
+        <br>
+        <label for="idno">Idno:</label>
+        <input type="text" id="idno" name="idno" required>
+        <br>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required>
+        <br>
+        <label for="dob">DOB:</label>
+        <input type="date" id="dob" name="dob" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+        <br>
+        <label for="phoneno">Phoneno:</label>
+        <input type="text" id="phoneno" name="phoneno" required>
+        <br>
+        <label for="hospital">Hospital:</label>
+        <input type="text" id="hospital" name="hospital" required>
+        <br>
+        <label for="specialization">Specialization:</label>
+        <input type="text" id="specialization" name="specialization" required>
+        <br>
+         <label for="photo">Photo:</label>
+        <input type="file" id="photo" name="photo">
+        <br>
+         <label for="password">Password:</label>
+        <input type="text" id="password" name="password">
+        <br>
+        <input type="submit" value="Register">
+    </form>
+</body>
+
+</html>

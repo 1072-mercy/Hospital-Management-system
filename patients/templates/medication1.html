@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add your head content here -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='medication.css') }}">
+</head>
+<body>
+    
+    {% if medication_entries %}
+    <table>
+        <thead>
+            <tr>
+                <th>Doctor Name</th>
+                <th>Doctor Email</th>
+                <th>Medication</th>
+                <th>Timestamp</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entry in medication_entries %}
+                <tr>
+                    <td>{{ entry.Name }}</td>
+                    <td>{{ entry.doctor_email }}</td>
+                    <td>{{ entry.Medication }}</td>
+                    <td>{{ entry.timestamp }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No medication entries found.</p>
+{% endif %}
+
+
+</body>
+</html>

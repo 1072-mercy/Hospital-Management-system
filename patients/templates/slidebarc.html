@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Dynamic Content</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='sidebar.css' ) }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='card4.css.css' ) }}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="left">
+            <button onclick="loadContent('medication')">Show 1</button>
+            <button onclick="loadContent('comments')">Show 1</button>
+            <button onclick="loadContent('diary')">Show 1</button>
+            <button onclick="loadContent('appointments')">Show 1</button>
+            <button onclick="loadContent('billing')">Show 1</button>
+       
+        </div>
+
+        <div class="right">
+            <iframe src="" name="iframe" frameborder="0" scrolling="auto" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        function loadContent(route) {
+            $.ajax({
+                type: 'GET',
+                url: route,
+                success: function (data) {
+                    document.querySelector('iframe').srcdoc = data;
+                },
+                error: function () {
+                    alert('Failed to load content.');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

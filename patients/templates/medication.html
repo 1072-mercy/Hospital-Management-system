@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Add your head content here -->
+</head>
+<body>
+    
+    {% if medication_entries %}
+        <h1>Medication History</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Timestamp</th>
+                    <th>Medication</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in medication_entries %}
+                    <tr>
+                        <td>{{ entry.timestamp }}</td>
+                        <td>{{ entry.Medication }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No medication records found.</p>
+    {% endif %}
+
+</body>
+</html>

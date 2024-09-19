@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Records</title>
+</head>
+<body>
+    <h1>Update Records</h1>
+    <form method="post">
+        <label for="symptoms">Symptoms:</label>
+        <input type="text" name="symptoms" value="{{ patient.Symptoms }}"><br>
+
+        <label for="sickness">Sickness:</label>
+        <input type="text" name="sickness" value="{{ patient.Sickness }}"><br>
+
+        <label for="medication">Medication:</label>
+        <input type="text" name="medication" value="{{ patient.Medication }}"><br>
+
+        <button type="submit">Update Records</button>
+    </form>
+</body>
+</html>

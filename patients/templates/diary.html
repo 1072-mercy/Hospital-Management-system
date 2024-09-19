@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diabetic Diary</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='diabetic.css') }}">
+</head>
+<body>
+  <div class="container">
+
+      {% if success_message %}
+      <div class="success-message">{{ success_message }}</div>
+    {% endif %}
+    {% if error_message %}
+        <div class="error-message">{{ error_message }}</div>
+      {% endif %}
+
+       {% if warning_message %}
+      <div class="warning-message">{{ warning_message }}</div>
+    {% endif %}
+
+    {% if danger_message %}
+      <div class="danger-message">{{ danger_message }}</div>
+    {% endif %}
+      <h1>Diabetic Diary</h1>
+      <form action="{{ url_for('patient.diary') }}" method="POST">
+          <!-- Your existing form content -->
+          <label for="dayOfWeek">Day of the Week:</label>
+          <select id="dayOfWeek" name="dayOfWeek" required>
+            <option value="" disabled selected>Select day...</option>
+            <option value="Sunday">Sunday</option>
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+          </select>
+          <label for="beforeEating">Before Eating (mg/dL):</label>
+          <input type="number" id="beforeEating" name="beforeEating" required>
+          <label for="afterEating">After Eating (mg/dL):</label>
+          <input type="number" id="afterEating" name="afterEating" required>
+          <label for="bedtime">Bedtime (mg/dL):</label>
+          <input type="number" id="bedtime" name="bedtime" required>
+          <label for="comment-input">Add Comment:</label>
+          <input type="text" id="comment" name="comment" required>
+          <input type="submit"value="submit">
+          <input type="hidden" name="patient_email" value="{{ session.get('user_email') }}">
+          
+      </form>
+         <div id="entries"></div>  
+  </div>
+</body>
+</html>
